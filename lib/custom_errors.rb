@@ -1,5 +1,5 @@
 class Person
-  attr_accessor :name, :partner
+  attr_accessor :partner, :name
 
   def initialize(name)
     @name = name
@@ -7,7 +7,6 @@ class Person
 
   def get_married(person)
     self.partner = person
-    person.partner = self
     if person.class != Person
       raise PartnerError
     else
@@ -18,6 +17,7 @@ class Person
   class PartnerError < StandardError
   end
 end
+ 
 
 beyonce = Person.new("Beyonce")
 beyonce.get_married("Jay-Z")
